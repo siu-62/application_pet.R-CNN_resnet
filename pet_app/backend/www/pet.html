@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>ペットをおしゃれにしてみましょう</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="device-width">
+  <style>
+@import url('https://fonts.googleapis.com/css2?family=Cherry+Bomb+One&display=swap');
+
+.title{
+    font-family: 'Cherry Bomb One',cursive;
+    text-align: center;
+    font-size: 40px;
+    color: hotpink;
+}
+.canvasanddownload{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position:relative;
+}
+
+
+    .canvas-and-button{
+        display:flex;
+        align-items: flex-start;
+        justify-content: center;
+        gap: 40px;
+        margin-top: 20px;
+    }
+
+   .loadingText{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    font-size: 28px;
+    font-weight: bold;
+    color: ivory;
+    pointer-events: none;
+    z-index: 10;
+   }
+
+   .canvasWrapper{
+    position:relative;
+   }
+
+    .EffectButton{
+        display: grid;
+        grid-template-columns: repeat(2,100px);
+        grid-template-rows: repeat(8,100px);
+        gap:10px;
+        justify-content: flex-end;
+        margin-right:20px;
+    }
+
+    .effect-button{
+        width:100px;
+        height:100px;
+        border: none;
+        background: none;
+        padding:0;
+        cursor: pointer;
+    }
+
+    .effect-button img{
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+        display: block;
+        object-fit: fill;
+        transform-origin:center;
+        transition:transform 0.3s ease;
+    }
+
+    .effect-button:hover img{
+        transform:scale(1.2)
+    }
+
+    .effect-button:active img{
+        transform:scale(0.95)
+    }
+
+    .mid{
+        position:relative;
+    }
+
+    .subButtons{
+        position: absolute;
+        top: 0px;
+        left: 110px;
+        display: none;
+        flex-direction: column;
+        gap: 10px;
+        z-index: 999;
+    }
+
+    .subButton{
+        width: 60px;
+        height: 60px;
+        padding: 0;
+        border: none;
+        background: none;
+        cursor: pointer;
+    }
+
+
+
+    .subButton img{
+        width:100%;
+        height:100%;
+        display: block;
+        object-fit: fill;
+        transform-origin:center;
+        transition:transform 0.3s ease;
+    }
+
+    .subButton:hover img{
+        transform:scale(1.2)
+    }
+
+    .subButton:active img{
+        transform:scale(0.95)
+    }
+
+    #ImageSpace{
+        background-color: lightpink;
+        display: block;
+    }
+    
+    #mark{
+        width: 150px;
+        height: 60px;
+        border: none;
+        background-color: lightblue;
+        color: cornflowerblue;
+        margin: 10px 0 0 10px;
+        cursor:pointer;
+        transition:background-color 0.3s ease;
+    }
+
+    #mark:hover{
+        background-color:paleturquoise;
+    }
+    
+    #mark:active{
+        transform:scale(0.85);
+        background-color:blue;
+    }
+
+    .download{
+        display:inline-block;
+        position:relative;
+        width: 140px;
+        height:55px;
+        border:none;
+        background-color:#ff69b4;
+        color:white;
+        cursor:pointer;
+        padding:10px 20px;
+        transition:background-color 0.3s ease;
+    }
+
+    .download:hover{
+        background-color:#ffc0cb;
+    }
+    
+    .download:active{
+        transform:scale(0.85);
+        background-color:#e05e9a;
+    }
+  </style>
+</head>
+<body>
+<h1 class="title">ペットをおしゃれにしてみましょう</h1>
+
+<p><input type="file" accept="image/*" onchange="ImageImport(this.files)"></p>
+
+<div class="canvas-and-button">
+    <div class = "canvasWrapper">
+        <div class="canvasanddownload">
+            <canvas id="ImageSpace" width="650" height="650">
+            ここにペットの写真が表示されます
+            </canvas>
+
+            <div id="loadingText" class="loadingText" style="display:none;">
+            loading...
+            </div>
+
+            <div class="downloadbutton">
+                <button class="download" type="button" onclick="ImageDownload()">保存</button>
+                <button id="mark" type="button" onclick = "ChangeUseImage()">ランドマーク</button>
+            </div>
+        </div>
+    </div>
+ <script src="panda.js"></script>
+ <script src="ImageImport.js"></script>
+ <script src="ImageDownload.js"></script>
+ <script src="OtherProcess.js"></script>
+
+<!---->
+
+    <div class="EffectButton">
+        <div class="mid">
+            <button class="effect-button" onclick="opensub('sangurasu')">
+                <img src="button/glass.png">
+            </button>
+    
+            <div id="sub_sangurasu" class="subButtons">
+                <button class="subButton" onclick="applyeffect('effectsangurasu')">
+                    <img src="button/glassC.png">
+                </button>
+                <button class="subButton" onclick="applyeffect('sangurasuA')">
+                    <img src="button/glassA.png">
+                </button>
+                <button class="subButton" onclick="applyeffect('sangurasuB')">
+                    <img src="button/glassB.png">
+                </button>
+            </div>
+        </div>
+
+        <div class="mid">
+            <button class="effect-button" onclick="opensub('bousi')">
+                <img src="button/hat.png">
+            </button>
+    
+            <div id="sub_bousi" class="subButtons">
+                <button class="subButton" onclick="applyeffect('boushi')">
+                    <img src="button/hatC.png">
+                </button>
+                <button class="subButton" onclick="applyeffect('santa')">
+                    <img src="button/hatB.png">
+                </button>
+                <button class="subButton" onclick="applyeffect('fuwafuwa')">
+                    <img src="button/hatA.png">
+                </button>
+            </div>
+        </div>
+
+        <div class="mid">
+            <button class="effect-button" onclick="opensub('ribon')">
+                <img src="button/rbnbtn.png">
+            </button>
+    
+            <div id="sub_ribon" class="subButtons">
+                <button class="subButton" onclick="applyeffect('effectribon')">
+                    <img src="button/neckC.png">
+                </button>
+                <button class="subButton" onclick="applyeffect('nekutai')">
+                    <img src="button/neckB.png">
+                </button>
+                <button class="subButton" onclick="applyeffect('suzu')">
+                    <img src="button/neckA.png">
+                </button>
+            </div>
+        </div>
+
+        <div class="mid">
+            <button class="effect-button" onclick="opensub('eyes')">
+                <img src="button/eyebotan.png">
+            </button>
+    
+            <div id="sub_eyes" class="subButtons">
+                <button class="subButton" onclick="applyeffect('effecteye')">
+                    <img src="button/eyeC.png">
+                </button>
+                <button class="subButton" onclick="applyeffect('eye1')">
+                    <img src="button/eyeB.png">
+                </button>
+                <button class="subButton" onclick="applyeffect('eye2')">
+                    <img src="button/eyeA.png">
+                </button>
+            </div>
+        </div>
+
+        <div class="mid">
+            <button class="effect-button" onclick="opensub('nose')">
+                <img src="button/nosebotan.png">
+            </button>
+    
+            <div id="sub_nose" class="subButtons">
+                <button class="subButton" onclick="applyeffect('effecthana')">
+                    <img src="button/nosebtnA.png">
+                </button>
+                <button class="subButton" onclick="applyeffect('hige')">
+                    <img src="button/nosebtnB.png">
+                </button>
+                <button class="subButton" onclick="applyeffect('hige2')">
+                    <img src="button/nosebtnC.png">
+                </button>
+            </div>
+        </div>
+
+        <div class="mid">
+            <button class="effect-button" onclick="opensub('mouse')">
+                <img src="button/moubtn.png">
+            </button>
+    
+            <div id="sub_mouse" class="subButtons">
+                <button class="subButton" onclick="applyeffect('effecthone')">
+                    <img src="button/mousebtnA.png">
+                </button>
+                <button class="subButton" onclick="applyeffect('mouseA')">
+                    <img src="button/mousebtnB.png">
+                </button>
+                <button class="subButton" onclick="applyeffect('mouseB')">
+                    <img src="button/mousebtnC.png">
+                </button>
+            </div>
+        </div>
+
+        <div class="mid">
+            <button class="effect-button" onclick="opensub('mimi')">
+                <img src="button/rabbit.png">
+            </button>
+    
+            <div id="sub_mimi" class="subButtons">
+                <button class="subButton" onclick="applyeffect('mimi')">
+                    <img src="button/earB.png">
+                </button>
+                <button class="subButton" onclick="applyeffect('starmimi')">
+                <img src="button/earC.png">
+                </button>
+                <button class="subButton" onclick="applyeffect('cat')">
+                    <img src="button/earA.png">
+                </button>
+            </div>
+        </div>
+
+        <div class="mid">
+            <button class="effect-button" onclick="opensub('kirakira')">
+                <img src="button/kirakirabotan.png">
+            </button>
+    
+            <div id="sub_kirakira" class="subButtons">
+                <button class="subButton" onclick="applyeffect('effectA')">
+                    <img src="button/efA.png">
+                </button>
+                <button class="subButton" onclick="applyeffect('effectB')">
+                    <img src="button/efC.png">
+                </button>
+                <button class="subButton" onclick="applyeffect('effectC')">
+                    <img src="button/efB.png">
+                </button>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<script src="EffectButton.js"></script>
+<script src="EffectSelect.js"></script>
+<script src="EffectRemove.js"></script>
+<script src="selfcount.js"></script>
+</body>
+</html>
