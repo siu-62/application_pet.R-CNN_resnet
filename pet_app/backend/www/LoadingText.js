@@ -1,3 +1,6 @@
+//担当:A
+
+//ローディング中テキスト表示用
 function showLoadingText() {
   const loading = document.getElementById("loadingText");
   if(loading){

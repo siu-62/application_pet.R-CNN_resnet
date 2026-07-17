@@ -26,8 +26,8 @@ import base64
 
 import json
 
-#detect2.pyから機械学習モデルを読み込む
-from .detect2 import load_ml_model, detect_face_and_lndmk
+#detect.pyから機械学習モデルを読み込む
+from .detect import load_ml_model, detect_face_and_lndmk
 
 # 勝手に足しました：みうら
 ID_ACCESS_LOG = {}
@@ -73,7 +73,7 @@ os.makedirs(TEMP_DIR, exist_ok=True)
 
 # フロントエンドの静的ファイルを保存するためのwwwディレクトリを作成
 # 例: pet.html, EffectSelect.js, ImageDownload.js, ImageImport.js
-BASE_DIR = os.path.dirname(__file__)  # backendTest.py がある場所
+BASE_DIR = os.path.dirname(__file__)  # このファイルがある場所
 WWW_DIR = os.path.join(BASE_DIR, "www")  # backend/www を指定
 
 # /static 配下で www/ のファイルを公開 fastAPI動かす用

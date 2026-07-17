@@ -1,3 +1,5 @@
+//担当:B
+
 function ImageDownload(){
     //画像をダウンロードさせる
     const ImageSpace = document.getElementById('ImageSpace');
@@ -5,10 +7,10 @@ function ImageDownload(){
 		if(blob){
 			const link = document.createElement("a");       //リンクになるタグを作る
 			link.href = URL.createObjectURL(blob);          //中に入れるリンクを指定(生成したテキストファイル)
-			link.download = "cuty_animal.png";              //クリックするとダウンロードするよって教えてる
+			link.download = "cuty_animal.png";              //クリックするとダウンロードする
 			link.click();
 			URL.revokeObjectURL(link.href);					//URLを解放する
-			console.log("ダウンロードできてる？");
+			console.log("ダウンロード");
 		}else{
 			console.error("ダウンロード失敗");
 		}

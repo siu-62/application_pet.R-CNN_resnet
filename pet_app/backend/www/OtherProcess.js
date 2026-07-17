@@ -1,3 +1,5 @@
+//担当:B
+
 document.addEventListener("DOMContentLoaded", function() {  //画面更新時、sessionStorageを初期化する
     sessionStorage.clear();
 });
@@ -6,14 +8,14 @@ document.addEventListener("DOMContentLoaded", function() {  //画面更新時、
 async function ChangeUseImage(){
     const userID = sessionStorage.getItem("ID");                        //保存していたIDを回収する
     if(userID === null){  //まだ加工する画像を選択していなかった場合 ===だと型も同じじゃないとtrueにならない(0=="0"T,0==="0"F)
-        console.log("エラーってるよ！画像入れてないから！");
+        console.log("選択画像無しエラー");
         alert("先に加工する画像を選択してください。");
         return;
     }
 
     const check = await CheckSession();
     if(!check){        //処理の中でFastAPIサーバーとの通信を行うので、事前に接続が可能かを確認する
-      console.log("エラーってるよ!backで!Check動いてるよ!",check);
+      console.log("backendでエラー:Check稼働中",check);
       alert("長時間操作が無かったため、接続が切れました。再度画像を選択してください。");
       return;
     }

@@ -1,22 +1,21 @@
-function resetEffects(){
-  for(let key in pressCount){
-    pressCount[key] = 0;
-  }
-}
-//バグ回避
-let isBusy = false;
+//メイン担当:B
+
+let isBusy = false;   //画像読み込み中かどうかを保持
+
 async function ImageImport(files){
-  if (isBusy) return;
+  //画像読み込みの重複回避　担当:A
+  if (isBusy) return; //画像読み込みしていいか確認
   isBusy = true;
-  console.log("画像インポート中制限開始"); //バグ回避
-  resetEffects();
-  showLoadingText();//ローディング用
-  if (files.length === 0) {
-  isBusy = false;
-  console.log("画像インポート中制限終了");
-  hideLoadingText();
-  return;
+  console.log("画像インポート中制限開始");
+  EffectsReset();
+  showLoadingText();  //ローディング用
+  if (files.length === 0) {   //ファイルが空っぽだった場合
+    isBusy = false;
+    console.log("画像インポート中制限終了");
+    hideLoadingText();
+    return;
   }
+
 	const file = files[0];              //もらうデータは必ずファイル群になってるから、先頭だけ抜き出して画像のみにする
   const reader = new FileReader();
   if (file.type.match("image.*")) {
@@ -33,7 +32,7 @@ async function ImageImport(files){
           const result = await response.json();
           return result;
         }catch(error){
-          console.error('送れなかったよ:',error.message);
+          console.error('送信失敗:',error.message);
           return null
         }
       }
@@ -41,9 +40,8 @@ async function ImageImport(files){
       const result = await sendUserImage(file);   //手紙を送って、返信を格納できるまで少し待つ
       
       if(result.detail){
-          console.log("エラーってるよ!backで!");
+          console.log("backendでエラー");
           alert(result.detail);
-          //バグ回避
           isBusy = false;
           console.log("画像インポート中制限終了");
           hideLoadingText();
@@ -69,7 +67,7 @@ async function ImageImport(files){
       ImageSpace.setAttribute('height', '650');
       context.clearRect(0,0,ImageSpace.clientWidth,ImageSpace.clientHeight);
       const Img = new Image();                                    //ここに画像が入る
-      //バグ回避
+
       Img.onerror = () => {
         alert("画像の描画に失敗しました");
         isBusy = false;
@@ -82,6 +80,7 @@ async function ImageImport(files){
         hideLoadingText();//ローディング用
         isBusy = false;
         console.log("画像インポート中制限終了");
+
         let scale = 0;
         if(Img.width <= Img.height){                              //画像が縦長か横長かによって、幅を合わせる方を変更
           scale = ImageSpace.height/Img.height;
@@ -97,13 +96,14 @@ async function ImageImport(files){
         sessionStorage.setItem("Img", JSON.stringify(event.target.result));         //画像を他の関数でも使えるよう保存しておく    
       }
     }
-    //バグ回避
+    
     reader.onerror = () => {
     alert("画像の読み込みに失敗しました");
     isBusy = false;
     console.log("画像インポート中制限終了");
     hideLoadingText();
-};
+    };
+
     reader.readAsDataURL(file);                                     //画像をURLに変換　これに成功するとreader.onloadが動き出す
 	}else{
     alert("画像ファイルを選んでください");
