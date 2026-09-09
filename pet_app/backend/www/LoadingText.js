@@ -8,6 +8,7 @@ function showLoadingText() {
   }
 }
 
+//ローディング中テキスト非表示用
 function hideLoadingText() {
  const loading = document.getElementById("loadingText");
   if(loading){

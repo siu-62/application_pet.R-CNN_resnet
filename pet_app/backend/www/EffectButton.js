@@ -2,6 +2,7 @@
 
 let activesubBox = null;
 
+//ボタン展開用
 function opensub(name){
     const newsubBox = document.getElementById("sub_" + name);
     if (activesubBox && activesubBox !== newsubBox) {
