@@ -83,78 +83,78 @@ app.mount("/static", StaticFiles(directory=WWW_DIR), name="static")
 
 # スタンプごとのタイプを設定
 STAMP_PLACEMENT_RULES = {
-    "effectsangurasu": {"type": "glasses"},
-    "effectsangurasu_migi": {"type": "glasses"},
-    "effectsangurasu_hidari": {"type": "glasses"},
-    "sangurasuA": {"type": "glasses"},
-    "sangurasuA_migi": {"type": "glasses"},
-    "sangurasuA_hidari": {"type": "glasses"},
-    "sangurasuB": {"type": "glasses"},
-    "sangurasuB_migi": {"type": "glasses"},
-    "sangurasuB_hidari": {"type": "glasses"},
-    "boushi":   { "type": "hat" },
-    "santa":    { "type": "hat" },
-    "fuwafuwa": { "type": "hat" },
-    "effectribon": { "type": "kubi" },
-    "nekutai":     { "type": "kubi" },
-    "suzu":        { "type": "kubi" },
-    "effecteye":        { "type": "eye" },
-    "effecteye_katame": { "type": "eye" },
-    "eye1":             { "type": "eye" },
-    "eye1_migi":        { "type": "eye" },
-    "eye1_hidari":      { "type": "eye" },
-    "eye2":             { "type": "eye" },
-    "eye2_katame":      { "type": "eye" },
-    "effecthana": { "type": "hana" },
-    "hige":       { "type": "hige" },
-    "hige2":      { "type": "hige" },
-    "effecthone": { "type": "kuchi" },
-    "mouseA":     { "type": "kuchi" },
-    "mouseB":     { "type": "kuchi" },
-    "mimi":     { "type": "mimi" },
-    "starmimi": { "type": "mimi" },
-    "cat":      { "type": "mimi" },
-    "effectA": { "type": "kira" },
-    "effectB": { "type": "kira" },
-    "effectC": { "type": "kira" }
+    "effect_glasses_1": {"type": "glasses"},
+    "effect_glasses_1_right": {"type": "glasses"},
+    "effect_glasses_1_left": {"type": "glasses"},
+    "effect_glasses_2": {"type": "glasses"},
+    "effect_glasses_2_right": {"type": "glasses"},
+    "effect_glasses_2_left": {"type": "glasses"},
+    "effect_glasses_3": {"type": "glasses"},
+    "effect_glasses_3_right": {"type": "glasses"},
+    "effect_glasses_3_left": {"type": "glasses"},
+    "effect_hat_1":   { "type": "hat" },
+    "effect_hat_2":    { "type": "hat" },
+    "effect_hat_3": { "type": "hat" },
+    "effect_neck_1": { "type": "kubi" },
+    "effect_neck_2":     { "type": "kubi" },
+    "effect_neck_3":        { "type": "kubi" },
+    "effect_eye_1":        { "type": "eye" },
+    "effect_eye_1_single": { "type": "eye" },
+    "effect_eye_2":             { "type": "eye" },
+    "effect_eye_2_right":        { "type": "eye" },
+    "effect_eye_2_left":      { "type": "eye" },
+    "effect_eye_3":             { "type": "eye" },
+    "effect_eye_3_single":      { "type": "eye" },
+    "effect_nose_1": { "type": "hana" },
+    "effect_nose_2":       { "type": "hige" },
+    "effect_nose_3":      { "type": "hige" },
+    "effect_mouth_1": { "type": "kuchi" },
+    "effect_mouth_2":     { "type": "kuchi" },
+    "effect_mouth_3":     { "type": "kuchi" },
+    "effect_ear_1":     { "type": "mimi" },
+    "effect_ear_2": { "type": "mimi" },
+    "effect_ear_3":      { "type": "mimi" },
+    "effect_frame_1": { "type": "kira" },
+    "effect_frame_2": { "type": "kira" },
+    "effect_frame_3": { "type": "kira" }
 }
 
 # ちょうどいいスタンプのサイズを計算するために元画像の横幅のpxを設定しておく
 STAMP_PX = {
-    "effectsangurasu": 1052,
-    "effectsangurasu_migi": 529,
-    "effectsangurasu_hidari": 529,
-    "sangurasuA":1000,
-    "sangurasuA_migi": 498,
-    "sangurasuA_hidari": 498,
-    "sangurasuB":1000,
-    "sangurasuB_migi": 495,
-    "sangurasuB_hidari": 495,
-    "boushi": 1000,
-    "santa":1000,
-    "fuwafuwa":1000,
-    "effectribon": 904,
-    "nekutai":396,
-    "suzu":900,
-    "effecteye": 978,
-    "effecteye_katame": 305,
-    "eye1":950,
-    "eye1_migi": 269,
-    "eye1_hidari": 269,
-    "eye2":950,
-    "eye2_katame": 344,
-    "effecthana": 100,
-    "hige":266,
-    "hige2":155,
-    "effecthone": 1024,
-    "mouseA":1024,
-    "mouseB":500,
-    "mimi": 915,
-    "starmimi":1000,
-    "cat":900,
-    "effectA":746,
-    "effectB":694,
-    "effectC":737
+    "effect_glasses_1": 1052,
+    "effect_glasses_1_right": 529,
+    "effect_glasses_1_left": 529,
+    "effect_glasses_2":1000,
+    "effect_glasses_2_right": 498,
+    "effect_glasses_2_left": 498,
+    "effect_glasses_3":1000,
+    "effect_glasses_3_right": 495,
+    "effect_glasses_3_left": 495,
+    "effect_hat_1": 1000,
+    "effect_hat_2":1000,
+    "effect_hat_3":1000,
+    "effect_neck_1": 904,
+    "effect_neck_2":396,
+    "effect_neck_3":900,
+    "effect_eye_1": 978,
+    "effect_eye_1_single": 305,
+    "effect_eye_2":950,
+    "effect_eye_2_right": 269,
+    "effect_eye_2_left": 269,
+    "effect_eye_3":950,
+    "effect_eye_3_single": 344,
+    "effect_nose_1": 100,
+    "effect_nose_2":266,
+    "effect_nose_3":155,
+    "effect_mouth_1": 1024,
+    "effect_mouth_2":1024,
+    "effect_mouth_3":500,
+    "effect_ear_1": 915,
+    "effect_ear_2":1000,
+    "effect_ear_3":900,
+    "effect_frame_1":746,
+    "effect_frame_2":694,
+    "effect_frame_3":737
     }
 
 # ユーザーからサーバーへのデータ形式を定義
@@ -347,14 +347,14 @@ async def get_stamp_info(data: StampRequestData):
     filename = data.stamp_id
 
     # メガネと目については横顔の時片目用の画像を使う
-    if yokogao and (data.stamp_id == "effectsangurasu" or data.stamp_id == "sangurasuA" or data.stamp_id == "sangurasuB" or data.stamp_id == "eye1"):
+    if yokogao and (data.stamp_id == "effect_glasses_1" or data.stamp_id == "effect_glasses_2" or data.stamp_id == "effect_glasses_3" or data.stamp_id == "effect_eye_2"):
         if nose["x"] > face_cx: # 右向き
-            filename = f"{data.stamp_id}_migi"
+            filename = f"{data.stamp_id}_right"
         else: # 左向き
-            filename = f"{data.stamp_id}_hidari"
+            filename = f"{data.stamp_id}_left"
     
-    if yokogao and (data.stamp_id == "effecteye" or data.stamp_id == "eye2"):
-        filename = f"{data.stamp_id}_katame" # 右も左も同じ画像
+    if yokogao and (data.stamp_id == "effect_eye_1" or data.stamp_id == "effect_eye_3"):
+        filename = f"{data.stamp_id}_single" # 右も左も同じ画像
     
     stamp_path = os.path.join(WWW_DIR, "effect/" + filename + ".png")
     if not os.path.exists(stamp_path):
@@ -410,7 +410,7 @@ async def get_stamp_info(data: StampRequestData):
         y_top  = eye_center_y - needed_width_px/2
 
         if stamp_type == "glasses":
-            if data.stamp_id == "effectsangurasu" or data.stamp_id == "sangurasuA" or data.stamp_id == "sungrasuB":
+            if data.stamp_id == "effect_glasses_1" or data.stamp_id == "effect_glasses_2" or data.stamp_id == "effect_glasses_3":
                 if nose["x"] > face_cx: # 右向き
                     target_eye = le
                 else:
@@ -434,7 +434,7 @@ async def get_stamp_info(data: StampRequestData):
                 y_top  = eye_center_y - glasses_h_scaled / 2
         
         elif stamp_type == "eye":
-            if data.stamp_id == "effecteye" or data.stamp_id == "eye1" or data.stamp_id == "eye2":
+            if data.stamp_id == "effect_eye_1" or data.stamp_id == "effect_eye_2" or data.stamp_id == "effect_eye_3":
                 if nose["x"] > face_cx: # 右向き
                     target_eye = le
                 else:
@@ -553,7 +553,7 @@ async def get_stamp_info(data: StampRequestData):
             #    顔幅の 30% くらいに設定）
             needed_width_px = face_w * 0.80
 
-            if data.stamp_id == "mouseB":
+            if data.stamp_id == "effect_mouth_3":
                 needed_width_px = face_w * 0.50
             # 3. スケーリング後の高さを計算
             aspect = stamp_h / stamp_w
@@ -741,7 +741,7 @@ async def get_stamp_info(data: StampRequestData):
             #    顔幅の 30% くらいに設定）
             needed_width_px = face_w * 0.80
 
-            if data.stamp_id == "mouseB":
+            if data.stamp_id == "effect_mouth_3":
                 needed_width_px = face_w * 0.50
 
             # 3. スケーリング後の高さを計算
